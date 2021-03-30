@@ -52,6 +52,11 @@ public class Main {
 		System.out.println("Opdatter ansatt med PK=2  lonn");
 		ansattdao.oppdaterAnsattLonn(2, new BigDecimal(1111111));
 		skrivUtAlleAnsatter();
+		
+		System.out.println("Opdatter tilbake");
+		ansattdao.oppdaterAnsattStilling(2, "Dataingenior");
+		ansattdao.oppdaterAnsattLonn(2, new BigDecimal(750000));
+		skrivUtAlleAnsatter();
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 		
 		
