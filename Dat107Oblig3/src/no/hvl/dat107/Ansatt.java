@@ -2,6 +2,7 @@ package no.hvl.dat107;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -42,6 +44,17 @@ public class Ansatt {
 		this.stilling = stilling;
 		this.maanadslon = maanadslon;
 		this.avdeling = avdeling;
+	}
+
+	@OneToMany(mappedBy = "ansatt")
+	private List<Prosjektdeltagelse> deltagelser;
+
+	public void leggTilProsjektdeltagelse(Prosjektdeltagelse prosjektdeltagelse) {
+		deltagelser.add(prosjektdeltagelse);
+	}
+
+	public void fjernProsjektdeltagelse(Prosjektdeltagelse prosjektdeltagelse) {
+		deltagelser.remove(prosjektdeltagelse);
 	}
 
 	public Integer getAnsattid() {
@@ -108,7 +121,19 @@ public class Ansatt {
 		this.avdeling = avdeling;
 	}
 
+	public List<Prosjektdeltagelse> getDeltagelser() {
+		return deltagelser;
+	}
 
+	public void skrivUt(String innrykk) {
+		System.out.printf("%sAnsatt nr %d: %s %s", innrykk, ansattid, fornavn, etternavn);
+	}
+
+	public void skrivUtMedProsjekter() {
+		System.out.println();
+		skrivUt("");
+		deltagelser.forEach(p -> p.skrivUt("\n   "));
+	}
 
 	@Override
 	public String toString() {
