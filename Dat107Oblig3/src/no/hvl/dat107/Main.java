@@ -68,8 +68,8 @@ public class Main {
 		System.out.println(
 				"----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 		
-		int ans_id = 9;
-		int avd_id = 2;
+		int ans_id = 2;
+		int avd_id =3;
 		System.out.println("ansatt med anstatt id = "+ans_id+" endre til avdeling"+avd_id+" hvis ansatten er ikke sjeff i sin avdeling");
 		
 		System.out.println(

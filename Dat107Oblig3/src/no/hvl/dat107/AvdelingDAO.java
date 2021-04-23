@@ -94,7 +94,7 @@ public class AvdelingDAO {
 
 					avd.leggTilAnsatt(a);
 
-					em.persist(avd);
+					em.merge(avd);
 				}
 			}
 			tx.commit();

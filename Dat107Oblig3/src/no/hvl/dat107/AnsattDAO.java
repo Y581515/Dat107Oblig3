@@ -38,7 +38,7 @@ public class AnsattDAO {
 		EntityManager em = emf.createEntityManager();
 
 		try {
-			TypedQuery<Ansatt> query = em.createQuery("SELECT a FROM Ansatt a ORDER BY a.ansattid", Ansatt.class);
+			TypedQuery<Ansatt> query = em.createQuery("SELECT a FROM Ansatt a ORDER BY a.ansattid", Ansatt.class);//Select * 
 			return query.getResultList();
 
 		} finally {
