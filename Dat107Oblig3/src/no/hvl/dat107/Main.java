@@ -98,7 +98,7 @@ public class Main {
 
 		System.out.println(
 				"Utskrift av info om prosjekt, inkl. liste av deltagere med rolle og timer, og totalt timetall for prosjektet");
-		Prosjekt p1 = prosjektDAO.finnProsjektMedId(1);
+		Prosjekt p1 = prosjektDAO.finnProsjektMedId(2);
 		p1.skrivUtMedAnsatte();
 
 		

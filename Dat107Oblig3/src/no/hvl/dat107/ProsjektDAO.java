@@ -35,7 +35,7 @@ public class ProsjektDAO {
 		EntityManager em = emf.createEntityManager();
 
 		List<Prosjektdeltagelse> listen;
-		Integer tT = 0;
+		int tT = 0;
 
 		try {
 			TypedQuery<Prosjektdeltagelse> query = em.createQuery(
