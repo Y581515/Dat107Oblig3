@@ -38,7 +38,8 @@ public class AnsattDAO {
 		EntityManager em = emf.createEntityManager();
 
 		try {
-			TypedQuery<Ansatt> query = em.createQuery("SELECT a FROM Ansatt a ORDER BY a.ansattid", Ansatt.class);//Select * 
+			TypedQuery<Ansatt> query = em.createQuery("SELECT a FROM Ansatt a ORDER BY a.ansattid", Ansatt.class);// Select
+																													// *
 			return query.getResultList();
 
 		} finally {
@@ -59,6 +60,10 @@ public class AnsattDAO {
 					Ansatt.class);
 			query.setParameter("brukernavn", brukernavn);
 			return query.getSingleResult(); // NB! Unntak hvis 0 eller flere.
+
+		} catch (Throwable e) {
+			e.printStackTrace();
+			return null;
 
 		} finally {
 			em.close();

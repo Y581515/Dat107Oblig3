@@ -133,9 +133,10 @@ public class AvdelingDAO {
 			} else {
 
 				a = em.find(Ansatt.class, ansatt);
-				avd = new Avdeling(nyAvdelingsNavn, a);
 
 				a.getAvdeling().fjernAnsatt(a);
+
+				avd = new Avdeling(nyAvdelingsNavn, a);
 
 				avd.leggTilAnsatt(a);
 
